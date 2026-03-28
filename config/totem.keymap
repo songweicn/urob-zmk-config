@@ -1,0 +1,108 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+&mt {
+    require-prior-idle-ms = <150>;
+    flavor = "tap-preferred";
+    tapping-term-ms = <175>;
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <0 1>;
+            bindings = <&kp ESC>;
+        };
+
+        combo_pgup {
+            bindings = <&kp PG_UP>;
+            key-positions = <16 17>;
+        };
+
+        combo_pgdn {
+            bindings = <&kp PAGE_DOWN>;
+            key-positions = <18 17>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base {
+            label = "base";
+            bindings = <
+       &kp Q           &kp W           &kp F               &kp P        &kp B        &kp J        &kp L            &kp U                &kp Y            &kp SINGLE_QUOTE
+       &mt LEFT_WIN A  &mt LEFT_ALT R  &mt LEFT_CONTROL S  &mt LSHFT T  &kp G        &kp M        &mt RSHFT N      &mt RIGHT_CONTROL E  &mt RIGHT_ALT I  &mt RIGHT_GUI O
+&to 0  &kp Z           &kp X           &kp C               &kp D        &kp V        &kp K        &kp H            &kp COMMA            &kp DOT          &kp SLASH         &to 0
+                                       &lt 3 ESCAPE        &lt 1 SPACE  &lt 2 TAB    &lt 5 ENTER  &lt 4 BACKSPACE  &lt 6 DELETE
+            >;
+        };
+
+        nav {
+            label = "nav";
+            bindings = <
+        &none         &none         &none             &none           &none     &kp INSERT  &kp HOME        &kp UP_ARROW    &kp END          &kp PAGE_UP
+        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none     &kp CAPS    &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp PAGE_DOWN
+&trans  &none         &none         &tog 4            &tog 1          &none     &kp LC(Y)   &kp LC(V)       &kp LC(C)       &kp LC(X)        &kp LC(Z)      &trans
+                                    &trans            &trans          &trans    &kp ENTER   &kp BACKSPACE   &kp DELETE
+            >;
+        };
+
+        mouse {
+            label = "mouse";
+            bindings = <
+        &none         &none         &none             &none           &none     &kp INSERT  &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &msc SCRL_UP
+        &kp LEFT_GUI  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &none     &kp CAPS    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_DOWN
+&trans  &none         &none         &tog 5            &tog 2          &none     &kp LC(Y)   &kp LC(V)       &kp LC(C)       &kp LC(X)        &kp LC(Z)       &trans
+                                    &trans            &trans          &trans    &mkp LCLK   &mkp RCLK       &mkp MCLK
+            >;
+        };
+
+        media {
+            label = "media";
+            bindings = <
+        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2      &bt BT_SEL 3    &bt BT_CLR_ALL    &none       &none             &kp C_VOLUME_UP    &none       &none
+        &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_CONTROL  &kp LEFT_SHIFT  &bt BT_CLR        &none       &kp C_PREVIOUS    &kp C_VOLUME_DOWN  &kp C_NEXT  &none
+&trans  &none         &none         &tog 6            &tog 3          &none             &none       &none             &none              &none       &none  &trans
+                                    &trans            &none           &none             &kp C_STOP  &kp C_PLAY_PAUSE  &kp C_MUTE
+            >;
+        };
+
+        num {
+            label = "num";
+            bindings = <
+        &kp LEFT_BRACKET  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp RIGHT_BRACKET    &none  &none           &none             &none         &none
+        &kp SEMICOLON     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp EQUAL            &none  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_WIN
+&trans  &kp GRAVE         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp BACKSLASH        &none  &tog 4          &tog 1            &none         &none         &trans
+                                        &kp PERIOD    &kp NUMBER_0  &kp MINUS            &none  &trans          &none
+            >;
+        };
+
+        sym {
+            label = "sym";
+            bindings = <
+        &kp LEFT_BRACE  &kp AMPERSAND    &kp ASTERISK          &kp LEFT_PARENTHESIS   &kp RIGHT_BRACE    &none   &none           &none             &none         &none
+        &kp COLON       &kp DOLLAR       &kp PERCENT           &kp LCTRL              &kp PLUS           &none   &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI
+&trans  &kp TILDE       &kp EXCLAMATION  &kp AT_SIGN           &kp POUND              &kp PIPE           &none   &tog 5          &tog 2            &none         &none         &trans
+                                         &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp UNDERSCORE     &trans  &none           &none
+            >;
+        };
+
+        fun {
+            label = "FUN";
+            bindings = <
+        &kp F12  &kp F7  &kp F8      &kp F9     &kp PRINTSCREEN    &none  &none           &none             &none         &none
+        &kp F11  &kp F4  &kp F5      &kp F6     &kp SCROLLLOCK     &none  &kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI
+&trans  &kp F10  &kp F1  &kp F2      &kp F3     &kp PAUSE_BREAK    &none  &tog 6          &tog 3            &none         &none         &trans
+                         &kp ESCAPE  &kp SPACE  &kp TAB            &none  &none           &trans
+            >;
+        };
+    };
+
+    conditional_layers { compatible = "zmk,conditional-layers"; };
+};
