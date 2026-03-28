@@ -18,3 +18,11 @@ include:
   - board: corneish_zen_v2_right
   - board: glove80_lh
   - board: glove80_rh
+
+  - board: xiao_ble
+    shield: totem_left
+    artifact-name: totem-left
+
+  - board: xiao_ble
+    shield: totem_right
+    artifact-name: totem-right
