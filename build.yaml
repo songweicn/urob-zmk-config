@@ -13,10 +13,10 @@
 #
 ---
 include:
-  - board: xiao_ble//zmk
+  - board: seeeduino_xiao_ble
     shield: totem_left
     artifact-name: totem-left
 
-  - board: xiao_ble//zmk
+  - board: seeeduino_xiao_ble
     shield: totem_right
     artifact-name: totem-right
