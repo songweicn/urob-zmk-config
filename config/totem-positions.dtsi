@@ -37,15 +37,15 @@
 #define RM4 19
 
 /* outer bottom keys (extra keys on Totem) */
-#define EXTL 20
+#define EXTL 25
 #define EXTR 31
 
 /* left hand bottom row */
+#define LB0 20
 #define LB0 21
 #define LB1 22
 #define LB2 23
 #define LB3 24
-#define LB4 25
 
 /* right hand bottom row */
 #define RB0 26
