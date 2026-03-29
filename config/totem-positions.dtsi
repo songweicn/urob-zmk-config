@@ -1,12 +1,4 @@
-/* config/totem-positions.dtsi
- *
- * Totem physical positions mapped to urob base.keymap symbolic positions.
- *
- * IMPORTANT:
- * This is an initial mapping for Totem 38-key layout.
- * Final correctness still needs to be verified against the shield's actual
- * matrix transform / physical order.
- */
+/* config/totem-positions.dtsi */
 
 /* left hand top row */
 #define LT0 0
@@ -36,25 +28,27 @@
 #define RM3 18
 #define RM4 19
 
-/* outer bottom keys (extra keys on Totem) */
-#define EXTL 25
-#define EXTR 31
-
-/* left hand bottom row */
+/* left hand bottom row: include the physical Z key, not the outer extra key */
 #define LB0 20
-#define LB0 21
-#define LB1 22
-#define LB2 23
-#define LB3 24
+#define LB1 21
+#define LB2 22
+#define LB3 23
+#define LB4 24
 
-/* right hand bottom row */
+/* right hand bottom row: include K M , . / only */
 #define RB0 26
 #define RB1 27
 #define RB2 28
 #define RB3 29
 #define RB4 30
 
-/* 6 thumbs: left outer->inner, right inner->outer style for urob */
+/* extra outer pinky keys on Totem */
+#define EXTL 25
+#define EXTR 31
+
+/* thumbs: temporarily keep inner 4 as real urob thumbs,
+ * and treat the outer 2 as sacrificial/disabled positions.
+ */
 #define LH2 32
 #define LH1 33
 #define LH0 34
