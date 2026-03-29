@@ -39,7 +39,7 @@
 #define RB3 28
 #define RB4 29
 
-/* only keep the inner 4 thumbs */
+/* inner 4 thumbs only */
 #define LH1 30
 #define LH0 31
 #define RH0 32
