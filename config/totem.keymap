@@ -1,2 +1,32 @@
-#include "totem-positions.dtsi"
+#define CONFIG_WIRELESS
+
+/*
+ * Totem adaptation for urob's shared base.keymap.
+ *
+ * Strategy:
+ * - Keep the original 34-key urob core untouched.
+ * - Use Totem's extra 4 keys as fixed outer helper keys.
+ * - Do not modify base.keymap / combos.dtsi / leader.dtsi / mouse.dtsi yet.
+ */
+
+#define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                   \
+    ZMK_LAYER(                                                                  \
+        name,                                                                   \
+        /* row 1 */                                                             \
+        &kp ESC          LT RT                &smart_mouse,                     \
+        /* row 2 */                                                             \
+        &kp LGUI         LM RM                &kp DEL,                          \
+        /* row 3 */                                                             \
+        &none            LB RB                &none,                            \
+        /* thumbs */                                                            \
+                           LH RH                                               \
+    )
+
+#include "zmk-helpers/key-labels/totem.h"
 #include "base.keymap"
+
+/ {
+    chosen {
+        zmk,physical-layout = &totem_layout;
+    };
+};
