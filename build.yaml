@@ -15,11 +15,12 @@ include:
     shield: totem_left
     snippet: studio-rpc-usb-uart
     artifact-name: totem_left
-
   - board: seeeduino_xiao_ble
     shield: totem_right
     artifact-name: totem_right
-
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: totem_reset
 #  - board: seeeduino_xiao_ble
 #    shield: settings_reset
 #    artifact-name: totem_reset
@@ -28,11 +29,6 @@ include:
 #    shield: faw36_left
 #    snippet: studio-rpc-usb-uart
 #    artifact-name: faw36_left
-#
 #  - board: seeeduino_xiao_ble
 #    shield: faw36_right
 #    artifact-name: faw36_right
-
-  - board: seeeduino_xiao_ble
-    shield: settings_reset
-    artifact-name: totem_reset
