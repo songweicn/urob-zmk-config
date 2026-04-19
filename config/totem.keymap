@@ -2,10 +2,10 @@
 #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                                      \
     ZMK_LAYER(                                                                                    \
         name,                                                                                     \
-                  LT RT             \
-            &none LM RM &none       \
-                  LB RB             \
-            &none LH RH &none       \
+                  LT RT       \
+                  LM RM       \
+                  LB RB       \
+                  LH RH       \
      )
 
 #include "zmk-helpers/key-labels/totem.h"
